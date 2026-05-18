@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: my-chatgpt-app
+    runtime: node
+    plan: free
+    buildCommand: corepack enable && pnpm install && pnpm run build && cd mcp_app_basics_node && pnpm install
+    startCommand: cd mcp_app_basics_node && pnpm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22

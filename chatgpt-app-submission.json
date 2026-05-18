@@ -1,0 +1,240 @@
+{
+  "$schema": "https://developers.openai.com/apps-sdk/schemas/chatgpt-app-submission.v1.json",
+  "schema_version": 1,
+  "app_info": {
+    "display_name": "MCP App Basics",
+    "subtitle": "Learn Apps SDK APIs",
+    "description": "MCP App Basics helps developers explore core ChatGPT Apps SDK patterns through interactive tools and widgets that demonstrate tool results, widget messages, model context updates, host APIs, display modes, and app-only server tools.",
+    "category": "DEVELOPER_TOOLS"
+  },
+  "tools": {
+    "show_tool_result": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Returns example content and structured data for a widget without modifying server or external state.",
+        "open_world_justification": "Does not publish content or change any third-party system.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    },
+    "send_message": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Returns an instructional widget for sending a conversation message and does not modify external data.",
+        "open_world_justification": "Only demonstrates in-chat widget communication and does not write to public internet state.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    },
+    "update_model_context": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Returns an instructional widget for updating model context without changing server records or external systems.",
+        "open_world_justification": "Only demonstrates private conversation context behavior and does not affect third-party or public systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    },
+    "call_server_tool": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Returns an instructional widget that can call an app-only dice tool and does not persist data.",
+        "open_world_justification": "Does not write to public internet state or third-party services.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    },
+    "call_server_tool__roll_dice": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Computes and returns a random dice roll without reading or writing persistent data.",
+        "open_world_justification": "Does not contact or change external systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    },
+    "host_theming": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Returns a theming demonstration widget without modifying server or external state.",
+        "open_world_justification": "Does not publish content or update third-party systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    },
+    "open_link": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Returns a widget that demonstrates link opening and does not persist or mutate app data.",
+        "open_world_justification": "Can open an external URL for the user but does not write to external systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    },
+    "request_display_mode": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Returns a widget that demonstrates display mode requests without changing stored data.",
+        "open_world_justification": "Only affects the private host display experience and does not update public or third-party systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    },
+    "streaming_tool_input": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Returns generated story metadata and a streaming demonstration widget without persisting data.",
+        "open_world_justification": "Does not publish generated content or update external systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    },
+    "get_host_capabilities": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Returns a widget for viewing host capabilities without changing server or external data.",
+        "open_world_justification": "Only displays private host capability information and does not affect external systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    },
+    "get_host_context": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Returns a widget for viewing host context such as theme and locale without modifying data.",
+        "open_world_justification": "Only displays private host environment details and does not write to external systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    },
+    "get_host_version": {
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false,
+        "destructiveHint": false
+      },
+      "justifications": {
+        "read_only_justification": "Returns a widget for viewing host name and version without modifying any state.",
+        "open_world_justification": "Only displays private host version information and does not affect third-party systems.",
+        "destructive_justification": "Does not delete, overwrite, revoke, or perform irreversible actions."
+      }
+    }
+  },
+  "test_cases": [
+    {
+      "description": "Show how a server tool sends structured content into a widget.",
+      "user_prompt": "Show me how a tool result gets displayed in a widget.",
+      "file_attachment_urls": null,
+      "tools_triggered": "show_tool_result",
+      "expected_output": "Returns an instructional widget and explains how structuredContent flows from the tool handler to the widget.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Demonstrate sending a message from a widget into the conversation.",
+      "user_prompt": "How do I send a message from a widget?",
+      "file_attachment_urls": null,
+      "tools_triggered": "send_message",
+      "expected_output": "Returns a widget that lets the user send a message and explains app.sendMessage behavior.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Demonstrate silent model context updates from a widget.",
+      "user_prompt": "How can a widget silently give context to the model?",
+      "file_attachment_urls": null,
+      "tools_triggered": "update_model_context",
+      "expected_output": "Returns a widget for updating model context and explains deferred context delivery.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Demonstrate direct widget-to-server calls through an app-only tool.",
+      "user_prompt": "Show me how a widget calls a server tool directly.",
+      "file_attachment_urls": null,
+      "tools_triggered": "call_server_tool",
+      "expected_output": "Returns a widget that calls the app-only dice tool and explains app.callServerTool without model involvement.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Demonstrate progressive rendering of streamed tool arguments.",
+      "user_prompt": "Show me how streaming tool input works with a short sci-fi story.",
+      "file_attachment_urls": null,
+      "tools_triggered": "streaming_tool_input",
+      "expected_output": "Returns a generated short story demonstration and explains how partial tool input appears in the widget.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Show host environment and context values.",
+      "user_prompt": "How do I get the host's theme and locale in my app?",
+      "file_attachment_urls": null,
+      "tools_triggered": "get_host_context",
+      "expected_output": "Returns a widget that displays host context and explains how to listen for host context changes.",
+      "expected_output_url": null
+    }
+  ],
+  "negative_test_cases": [
+    {
+      "description": "Do not trigger for unrelated calendar management.",
+      "user_prompt": "Schedule a meeting with Jordan tomorrow at 2 PM.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "The app should not be invoked because it does not manage calendars or create events.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Do not trigger for production data operations.",
+      "user_prompt": "Delete the old customer records from my CRM.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "The app should not be invoked because it only demonstrates Apps SDK APIs and cannot modify CRM records.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Do not trigger for general web browsing or search.",
+      "user_prompt": "Find the latest news about electric cars.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "The app should not be invoked because news search is outside its supported developer-demo workflows.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Do not trigger for unrelated code generation without Apps SDK context.",
+      "user_prompt": "Write a Python script that sorts a CSV file.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "The app should not be invoked unless the user is asking about ChatGPT Apps SDK widget or MCP patterns.",
+      "expected_output_url": null
+    }
+  ]
+}
